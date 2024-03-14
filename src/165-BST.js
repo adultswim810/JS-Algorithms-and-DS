@@ -83,13 +83,35 @@ class BinarySearchTree {
     return visited
   }
 
-  DFSHelper(node) {}
-
   DepthFirstSearchPreOrder() {
     let visited = []
     if (!this.root) return visited
     let curr = this.root
-    visited.push(this.DFSHelper(curr))
+
+    function traverse(node) {
+      visited.push(node.val)
+      if (node.left) traverse(node.left)
+      if (node.right) traverse(node.right)
+    }
+
+    traverse(curr)
+    return visited
+  }
+
+  DepthFirstSearchPostOrder() {
+    let visited = []
+    if (!this.root) return visited
+    let curr = this.root
+
+    function traverse(node) {
+      if (node.left) traverse(node.left)
+      if (node.right) traverse(node.right)
+      visited.push(node.val)
+
+    }
+
+    traverse(curr)
+    return visited
   }
 }
 
@@ -108,4 +130,6 @@ tree.insert(20)
 // console.log(tree.find(7))
 
 // console.log(util.inspect(tree, false, null, false))
-console.log(tree.BreadthFirstSearch())
+// console.log(tree.BreadthFirstSearch())
+// console.log(tree.DepthFirstSearchPreOrder())
+console.log(tree.DepthFirstSearchPostOrder())
