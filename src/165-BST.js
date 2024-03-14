@@ -113,6 +113,22 @@ class BinarySearchTree {
     traverse(curr)
     return visited
   }
+
+  DepthFirstSearchInOrder() {
+    let visited = []
+    if (!this.root) return visited
+    let curr = this.root
+
+    function traverse(node) {
+      if (node.left) traverse(node.left)
+      if (node.right) traverse(node.right)
+      visited.push(node.val)
+
+    }
+
+    traverse(curr)
+    return visited
+  }
 }
 
 let tree = new BinarySearchTree()
