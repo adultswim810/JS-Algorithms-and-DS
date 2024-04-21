@@ -121,9 +121,8 @@ class BinarySearchTree {
 
     function traverse(node) {
       if (node.left) traverse(node.left)
-      if (node.right) traverse(node.right)
       visited.push(node.val)
-
+      if (node.right) traverse(node.right)
     }
 
     traverse(curr)
@@ -148,4 +147,5 @@ tree.insert(20)
 // console.log(util.inspect(tree, false, null, false))
 // console.log(tree.BreadthFirstSearch())
 // console.log(tree.DepthFirstSearchPreOrder())
-console.log(tree.DepthFirstSearchPostOrder())
+// console.log(tree.DepthFirstSearchPostOrder())
+console.log(tree.DepthFirstSearchInOrder())
